@@ -20,7 +20,7 @@ Before running the script, you need to have the following:
 
 ```bash
 git clone https://github.com/Tripflow-io/Travelers-scripts.git
-cd Travelers-scripts
+cd Travelers-scripts/export_users
 ```
 
 2. Install the required dependencies using `pip`:
