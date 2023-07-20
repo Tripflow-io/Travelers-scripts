@@ -31,8 +31,8 @@ def enrich_data(df):
     return df
 
 if __name__ == "__main__":
-    create_export_job_endpoint = f"https://{env_vars['AUTH0_DOMAIN']}/api/v2/jobs/users-exports"
-    stats_endpoint = f"https://{env_vars['AUTH0_DOMAIN']}/api/v2/stats/active-users"
+    create_export_job_endpoint = f"https://{env_vars['AUTH0_TENANT_DOMAIN']}/api/v2/jobs/users-exports"
+    stats_endpoint = f"https://{env_vars['AUTH0_TENANT_DOMAIN']}/api/v2/stats/active-users"
 
     headers = {
         "Authorization": f"Bearer {env_vars['AUTH0_TOKEN']}",
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     }
 
     export_payload = {
-        "format": env_vars["FILE_EXT"],
+        "format": "csv",
         "fields": [
             {
                 "name": "name"
@@ -74,12 +74,12 @@ if __name__ == "__main__":
         # Export all users
         print(f"\tStep 2.2 Downloading users from AWS...")
         time.sleep(10)
-        export_job = requests.get(f"https://{env_vars['AUTH0_DOMAIN']}/api/v2/jobs/{job_id}", headers=headers)
+        export_job = requests.get(f"https://{env_vars['AUTH0_TENANT_DOMAIN']}/api/v2/jobs/{job_id}", headers=headers)
         export_job.raise_for_status()
         users_url = export_job.json()["location"]
         current_time = datetime.datetime.now()
         timestamp = current_time.strftime("%Y-%m-%d_%H-%M-%S")
-        local_file_path = f"users_{timestamp}." + env_vars["FILE_EXT"]
+        local_file_path = f"users_{timestamp}.csv"
         print(f"\tStep 2.2 Exporting users to local file: {local_file_path}")
 
         try:
