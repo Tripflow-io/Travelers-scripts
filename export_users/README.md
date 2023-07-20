@@ -66,4 +66,5 @@ The CSV file will have the following columns:
 ### MIT License
 Feel free to use, modify, and distribute this script following the terms of the MIT License.
 
-For any questions or issues, please open an issue on the repository or contact the author at `lorenzobalzani@tripflow.io`.
+## Reach out
+For any questions or issues, please open an issue on the repository or contact the author at [lorenzobalzani@tripflow.io](mailto:lorenzobalzai@tripflow.io).
