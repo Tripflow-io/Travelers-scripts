@@ -1,0 +1,6 @@
+requests
+datetime
+pandas
+colorama
+tabulate
+python-dotenv
