@@ -25,7 +25,7 @@ def get_ip_location(ip_address):
 
 def enrich_data(df):
     print("Step 3. Enriching data...")
-    print("\tStep 3.1. Enriching last login location...")
+    print("\tStep 3.1. Enriching last login locations...")
     df['last_location'] = df.apply(lambda row: get_ip_location(row['last_ip']), axis=1)
     df = df.drop(columns=['last_ip'])
     return df
@@ -111,7 +111,7 @@ if __name__ == "__main__":
             print(Fore.YELLOW + table)
     
         except requests.exceptions.RequestException as e:
-            print(f"Error while downloading users.")
+            print(f"Error while downloading users from AWS: check the location field in the Auth0 job response.")
         
     except requests.exceptions.RequestException as e:
-        print(f"Error while connecting to Auth0 management API. Check your token.")
+        print(f"Error while connecting to Auth0 management API. Your token might be expired: create new one and update .env file.")
