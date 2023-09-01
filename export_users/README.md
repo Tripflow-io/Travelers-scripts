@@ -38,7 +38,7 @@ AUTH0_TOKEN=YOUR_AUTH0_TOKEN_HERE
 ## Usage
 Run the script using the following command:
 ```bash
-python auth0_user_geolocation.py
+python export_auth0_users.py
 ```
 
 The script will perform the following steps:
