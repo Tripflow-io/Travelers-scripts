@@ -94,7 +94,8 @@ if __name__ == "__main__":
 
         try:
             with gzip.open(io.BytesIO(requests.get(users_url).content), 'rt') as gz_file:
-                content = gz_file.read().replace("'", "").replace('"', '')
+                content = gz_file.read().replace("", "")
+                print(content)
                 with open(user_file_path, 'w', newline='') as csv_file:
                     csv_file.write(content)
         
